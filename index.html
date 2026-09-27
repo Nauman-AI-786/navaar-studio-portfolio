@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navaar Studio — Case Study</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg: #0e1116;
+    --bg-raised: #161a22;
+    --line: rgba(255,255,255,0.09);
+    --text: #eceef2;
+    --text-dim: #9aa0ac;
+    --accent: #e0a558;
+    --accent-dim: rgba(224,165,88,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:'IBM Plex Sans', Arial, sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--accent-dim); color:var(--accent);}
+
+  header{padding:90px 0 60px; border-bottom:1px solid var(--line);}
+  .kicker{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--accent); margin-bottom:22px; letter-spacing:0.02em;}
+  h1{
+    font-family:'Newsreader', Georgia, serif; font-weight:500; font-style:italic;
+    font-size:44px; line-height:1.15; max-width:14ch; margin-bottom:22px;
+  }
+  .dek{font-size:17px; color:var(--text-dim); max-width:58ch;}
+
+  section{padding:54px 0; border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-family:'Newsreader', Georgia, serif; font-weight:500; font-size:26px;
+    margin-bottom:22px; color:var(--text);
+  }
+  p{color:var(--text-dim); font-size:15.5px; max-width:66ch; margin-bottom:14px;}
+  p:last-child{margin-bottom:0;}
+  strong{color:var(--text); font-weight:600;}
+
+  .stack{display:flex; flex-wrap:wrap; gap:9px; margin-top:20px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--text-dim);
+    border:1px solid var(--line); border-radius:5px; padding:6px 12px;
+  }
+
+  .col2{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  .block h3{font-size:15px; font-weight:600; margin-bottom:10px; color:var(--text);}
+  .block p{font-size:14.5px;}
+
+  .diagram{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--text-dim);
+    background:var(--bg-raised); border:1px solid var(--line); border-radius:8px;
+    padding:22px 24px; overflow-x:auto; white-space:pre; line-height:1.7; margin-top:18px;
+  }
+  .diagram .node{color:var(--text);}
+  .diagram .route{color:var(--accent);}
+
+  .decisions{margin-top:8px;}
+  .decision{padding:20px 0; border-top:1px solid var(--line);}
+  .decision:first-child{border-top:none; padding-top:0;}
+  .decision h3{font-size:15.5px; font-weight:600; margin-bottom:8px;}
+  .decision p{font-size:14.5px;}
+
+  .status-list{margin-top:6px; display:flex; flex-direction:column; gap:11px;}
+  .status-row{display:flex; align-items:flex-start; gap:12px; font-size:14.5px; color:var(--text-dim);}
+  .dot{width:8px; height:8px; border-radius:50%; margin-top:6px; flex-shrink:0;}
+  .dot.done{background:var(--accent);}
+  .dot.pending{background:transparent; border:1.5px solid var(--text-dim);}
+  .status-row.done{color:var(--text);}
+
+  .closer p{
+    font-family:'Newsreader', Georgia, serif; font-style:italic; font-size:18px;
+    line-height:1.6; color:var(--text-dim); max-width:56ch;
+  }
+
+  footer{padding:44px 0 70px; font-size:13px; color:var(--text-dim);}
+
+  @media (max-width:640px){
+    header{padding:60px 0 44px;}
+    h1{font-size:32px;}
+    .col2{grid-template-columns:1fr; gap:26px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="kicker">Case study — full-stack product build</div>
+    <h1>Navaar Studio: an Urdu video creation platform, built end to end</h1>
+    <p class="dek">A browser-based tool for turning Urdu poetry and lyrics into short, shareable videos — with real user accounts, a secure database, and subscription billing behind it.</p>
+  </header>
+
+  <section>
+    <h2>What it does</h2>
+    <p>Navaar Studio lets someone type a line of Urdu or English poetry, choose a visual mood, typography, background, and voice direction, and export a real HD video — rendered entirely in the browser with the Canvas API, no external video service involved.</p>
+    <p>A second tool, the <strong>Photo + Lyrics Video Maker</strong>, takes a person's own photos and lyrics and produces a lyric-video-style export with six selectable cinematic layouts and a user-supplied audio track.</p>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <div class="col2">
+      <div class="block">
+        <h3>Frontend</h3>
+        <p>Responsive landing page and interactive studio in vanilla JS. Real-time canvas rendering and export via the MediaRecorder API, RTL-aware Urdu/English typography switching, and a client-side photo slideshow engine with synced captions and audio mixing.</p>
+      </div>
+      <div class="block">
+        <h3>Backend</h3>
+        <p>A Node.js and Express API handling saved projects, checkout sessions, and subscription webhooks — deployed as a standalone, publicly reachable service.</p>
+      </div>
+      <div class="block">
+        <h3>Database</h3>
+        <p>A Postgres schema on Supabase with Row Level Security enforced at the table level, so a user's saved projects and subscription status are isolated from every other user by default — not just by application logic.</p>
+      </div>
+      <div class="block">
+        <h3>Payments</h3>
+        <p>Originally scoped for Stripe; pivoted to a Merchant-of-Record provider after discovering a regional account restriction, avoiding a manual international tax-compliance build.</p>
+      </div>
+    </div>
+    <div class="stack">
+      <span class="chip">HTML / CSS / JS</span>
+      <span class="chip">Canvas API</span>
+      <span class="chip">Node.js</span>
+      <span class="chip">Express</span>
+      <span class="chip">Supabase / Postgres</span>
+      <span class="chip">Row Level Security</span>
+      <span class="chip">Railway</span>
+      <span class="chip">GitHub Pages</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Architecture</h2>
+    <p>The frontend never touches the database directly — every write goes through the API, which is the only thing holding service-level credentials.</p>
+    <div class="diagram"><span class="node">Browser (GitHub Pages)</span>
+   │
+   ├─ <span class="route">Supabase Auth</span> ── sign up / sign in
+   ├─ <span class="route">Supabase DB</span>   ── saved projects, RLS-protected
+   │
+   └─ <span class="node">Express API (Railway)</span>
+        ├─ /api/projects  → save / list / delete a project
+        ├─ /api/checkout  → start a subscription checkout
+        └─ /api/webhook   → sync subscription status</div>
+  </section>
+
+  <section>
+    <h2>A few decisions worth naming</h2>
+    <div class="decisions">
+      <div class="decision">
+        <h3>No external AI video service</h3>
+        <p>Video generation happens entirely client-side via Canvas and MediaRecorder. Zero per-video compute cost, and no dependency on a third-party rendering API staying online.</p>
+      </div>
+      <div class="decision">
+        <h3>Security at the data layer, not just the app layer</h3>
+        <p>Row Level Security means a bug in the API can't leak another user's projects — the database itself refuses the query.</p>
+      </div>
+      <div class="decision">
+        <h3>Free-tier infrastructure by design</h3>
+        <p>Database, backend hosting, and frontend hosting were all chosen and configured to run at zero fixed cost during early validation, before any revenue exists.</p>
+      </div>
+      <div class="decision">
+        <h3>Adapting around a real constraint</h3>
+        <p>Stripe doesn't support Pakistan-based accounts. Rather than stall the build, the billing layer was re-scoped around a Merchant-of-Record provider that handles global tax compliance out of the box.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Current status</h2>
+    <div class="status-list">
+      <div class="status-row done"><span class="dot done"></span>Database schema live, with Row Level Security enforced</div>
+      <div class="status-row done"><span class="dot done"></span>Backend deployed and publicly reachable</div>
+      <div class="status-row done"><span class="dot done"></span>Frontend connected to the live backend</div>
+      <div class="status-row"><span class="dot pending"></span>Payment provider setup in progress</div>
+      <div class="status-row"><span class="dot pending"></span>End-to-end test: sign up → save a project → checkout</div>
+    </div>
+  </section>
+
+  <section class="closer">
+    <p>This build covers the full stack of a real product: canvas-based media engineering in the browser, a secured multi-tenant database, a deployed API, and a payments integration re-routed around a genuine regional limitation.</p>
+  </section>
+
+  <footer>Navaar Studio — product build documentation</footer>
+</div>
+
+</body>
+</html>
